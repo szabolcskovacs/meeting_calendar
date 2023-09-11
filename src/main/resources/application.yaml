@@ -1,0 +1,33 @@
+app:
+  version: @project.version@
+server:
+  port: 8080
+  shutdown: graceful
+  servlet:
+    context-path: /meeting-calendar
+management:
+  endpoint:
+    health:
+      show-details: always
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 60s
+  jpa:
+    show-sql: false
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: false
+      path: /h2
+meeting:
+  day-start: 09:00 AM
+  day-end: 05:00 PM
+  longest-meeting: PT3H
+  unit-length: 30
+timezone:
+  defaultTimezone: UTC
